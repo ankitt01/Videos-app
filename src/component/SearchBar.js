@@ -1,5 +1,4 @@
 import React from 'react';
-import youtube from '../apis/youtube';
 
 class SearchBar extends React.Component {
 
@@ -12,13 +11,7 @@ class SearchBar extends React.Component {
   onFormSubmit = (e) => {
     e.preventDefault();
 
-    
-    youtube.get('/search', {
-      params: {
-        q: 'term',
-        
-      }
-    })
+    this.props.onFormSubmit(this.state.term)
   }
 
   render() {
